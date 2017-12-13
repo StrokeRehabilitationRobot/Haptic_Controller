@@ -12,4 +12,5 @@ class HapticController(object):
 # Dyanamics
 r = Robot()
 M = Dynamics.make_mass_matrix(r)
+
 print M
