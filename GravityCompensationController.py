@@ -6,10 +6,9 @@ import numpy as np
 
 
 class GravityCompensationController():
-    def __init__(self, k_l,k_v):
+    def __init__(self, k):
         self._prev = None
-        self._K_l = k_l
-        self._K_v = k_v
+        self._K = k
         pass
 
     def getTorque(self, robot):
@@ -22,7 +21,8 @@ class GravityCompensationController():
         qdd = np.asarray(robot.qdd).reshape(3, 1)
         load = np.asarray(robot.tau).reshape(3, 1)
 
-        u =  g # -( self._K_v*qd) + (self._K_l*load)   #
+        u =  g
+
         return u
 
     def update_K_l(self, k):

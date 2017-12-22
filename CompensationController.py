@@ -22,9 +22,9 @@ class CompensationController():
         qdd = np.asarray(robot.qdd).reshape(3, 1)
         load = np.asarray(robot.tau).reshape(3, 1)
 
-        u =  -( self._K_v*qd) + (self._K_l*load)   #
-        u[1] = g[1]
-        u[2] = g[2]
+        u =  ( self._K_v*qd) + (self._K_l*load)   #
+        u[1] = 0.05*g[1]
+        u[2] = 0.005*g[2]
         return u
 
     def update_K_l(self, k):
