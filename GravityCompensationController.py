@@ -21,7 +21,7 @@ class GravityCompensationController():
         qdd = np.asarray(robot.qdd).reshape(3, 1)
         load = np.asarray(robot.tau).reshape(3, 1)
 
-        u =  g
+        u =  self._K*g
 
         return u
 
