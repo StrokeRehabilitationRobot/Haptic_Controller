@@ -25,6 +25,7 @@ class CompensationController():
         :param robot:
         :return:
         """
+        
         self._prev  = copy.deepcopy(robot)
         g = Dynamics.make_gravity_matrix(robot)
         M = Dynamics.make_mass_matrix(robot)
